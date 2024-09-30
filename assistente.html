@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente Virtual</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('mesa.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 5px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            animation: fadeIn 1s ease-in-out;
+            color: white;
+            transition: transform 0.3s;
+            box-shadow: none;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 
+                        0 0 30px rgba(0, 255, 255, 0.6), 
+                        0 0 40px rgba(0, 255, 255, 0.4);
+        }
+
+        .container:hover h1,
+        .container:hover p,
+        .container:hover .question,
+        .container:hover button {
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 
+                         0 0 20px rgba(0, 255, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .question {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px;
+            background-color: #fff;
+            color: #000dff;
+            transition: transform 0.2s, background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            box-shadow: none;
+        }
+
+        button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        button:hover {
+            background-color: #ff4d4d;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 
+                        0 0 30px rgba(255, 0, 0, 0.6), 
+                        0 0 40px rgba(255, 0, 0, 0.4);
+        }
+
+        button:active {
+            transform: scale(1);
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.75);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        button:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        body:hover {
+            border-color: rgba(0, 255, 255, 0.8);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+            p, .question {
+                font-size: 16px;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Olá! Eu sou o seu Assistente Virtual</h1>
+        <p>Estou aqui para lhe ajudar a registrar a sua aula!</p>
+        <p class="question">Como você deseja conversar comigo?</p>
+        <div class="button-container">
+            <form action="/texto" method="GET">
+                <!-- Botão com tooltip para Texto -->
+                <button type="submit">
+                    <img src="lapis.png" alt="Ícone do lápis">
+                    <span class="tooltip">Digite aqui o seu diário de bordo</span>
+                </button>
+            </form>
+            <form action="/voz" method="GET">
+                <!-- Botão com tooltip para Áudio (Voz) -->
+                <button type="submit">
+                    <img src="microfone.png" alt="Ícone do microfone">
+                    <span class="tooltip">Clique para gravar o seu diário de bordo</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
