@@ -1,0 +1,145 @@
+/* Estilo do contêiner principal */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+}
+
+/* Contêiner para centralizar os elementos */
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo do anel e elementos circulares */
+.ring {
+    position: relative;
+    width: 600px;  /* Aumentado o tamanho dos anéis */
+    height: 600px;  /* Aumentado o tamanho dos anéis */
+    border-radius: 50%;
+}
+
+.ring i {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-radius: inherit;
+    animation: animate 6s linear infinite;
+    transition: 0.5s;
+}
+
+.ring i:nth-child(1) {
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    animation-duration: 6s;
+}
+
+.ring i:nth-child(2) {
+    border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
+    animation-duration: 4s;
+}
+
+.ring i:nth-child(3) {
+    border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
+    animation: animate2 10s linear infinite;
+}
+
+.ring:hover i:nth-child(1) {
+    border: 6px solid lawngreen;
+    filter: drop-shadow(0 0 20px lawngreen);
+}
+
+.ring:hover i:nth-child(2) {
+    border: 6px solid red;
+    filter: drop-shadow(0 0 20px red);
+}
+
+.ring:hover i:nth-child(3) {
+    border: 6px solid yellow;
+    filter: drop-shadow(0 0 20px yellow);
+}
+
+/* Animações */
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Estilo do formulário de login */
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 40px;
+    background: rgba(18, 18, 18, 0.8);  /* Tornar o fundo translúcido */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.inputBx {
+    margin-bottom: 20px;
+}
+
+.inputBx input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 20px;  /* Bordas arredondadas */
+    font-size: 16px;
+    background-color: #121212;  /* Cor preta */
+    color: #fff;  /* Cor branca da fonte */
+}
+
+.inputBx input[type="submit"] {
+    background: linear-gradient(45deg, #ff69b4, #ff4500, #ffb400);  /* Gradiente rosa para amarelo */
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.inputBx input[type="submit"]:hover {
+    background: linear-gradient(45deg, #ff4500, #ffb400, #ff69b4);  /* Gradiente inverso */
+}
+
+.links {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
